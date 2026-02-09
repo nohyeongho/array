@@ -1,0 +1,398 @@
+<html lang="ko" class=""><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모델 및 어레이 정보 검색기</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8B5CF6',
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans KR', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .dark .glass-effect {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Noto Sans KR, sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.absolute{position:absolute}.relative{position:relative}.left-0{left:0px}.left-5{left:1.25rem}.right-0{right:0px}.top-1\/2{top:50%}.top-full{top:100%}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-10{margin-bottom:2.5rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mt-12{margin-top:3rem}.mt-2{margin-top:0.5rem}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-10{height:2.5rem}.h-12{height:3rem}.h-16{height:4rem}.max-h-64{max-height:16rem}.min-h-screen{min-height:100vh}.w-10{width:2.5rem}.w-12{width:3rem}.w-16{width:4rem}.w-full{width:100%}.max-w-2xl{max-width:42rem}.flex-1{flex:1 1 0%}.-translate-y-1\/2{--tw-translate-y:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.scale-95{--tw-scale-x:.95;--tw-scale-y:.95;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.scale-100{--tw-scale-x:1;--tw-scale-y:1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-6{gap:1.5rem}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.whitespace-pre-line{white-space:pre-line}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-2{border-width:2px}.border-t{border-top-width:1px}.border-b{border-bottom-width:1px}.border-primary\/20{border-color:rgb(139 92 246 / 0.2)}.border-slate-100{--tw-border-opacity:1;border-color:rgb(241 245 249 / var(--tw-border-opacity, 1))}.border-slate-200{--tw-border-opacity:1;border-color:rgb(226 232 240 / var(--tw-border-opacity, 1))}.border-transparent{border-color:transparent}.border-slate-50{--tw-border-opacity:1;border-color:rgb(248 250 252 / var(--tw-border-opacity, 1))}.border-primary\/30{border-color:rgb(139 92 246 / 0.3)}.bg-emerald-100{--tw-bg-opacity:1;background-color:rgb(209 250 229 / var(--tw-bg-opacity, 1))}.bg-primary\/10{background-color:rgb(139 92 246 / 0.1)}.bg-primary\/5{background-color:rgb(139 92 246 / 0.05)}.bg-red-50{--tw-bg-opacity:1;background-color:rgb(254 242 242 / var(--tw-bg-opacity, 1))}.bg-slate-200\/50{background-color:rgb(226 232 240 / 0.5)}.bg-slate-50{--tw-bg-opacity:1;background-color:rgb(248 250 252 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.p-1{padding:0.25rem}.p-3{padding:0.75rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-12{padding-top:3rem;padding-bottom:3rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.py-4{padding-top:1rem;padding-bottom:1rem}.pl-14{padding-left:3.5rem}.pr-6{padding-right:1.5rem}.pt-8{padding-top:2rem}.text-left{text-align:left}.text-center{text-align:center}.font-mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-5xl{font-size:3rem;line-height:1}.text-\[20px\]{font-size:20px}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.uppercase{text-transform:uppercase}.leading-relaxed{line-height:1.625}.tracking-tight{letter-spacing:-0.025em}.tracking-wider{letter-spacing:0.05em}.text-emerald-700{--tw-text-opacity:1;color:rgb(4 120 87 / var(--tw-text-opacity, 1))}.text-primary{--tw-text-opacity:1;color:rgb(139 92 246 / var(--tw-text-opacity, 1))}.text-red-500{--tw-text-opacity:1;color:rgb(239 68 68 / var(--tw-text-opacity, 1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105 / var(--tw-text-opacity, 1))}.text-slate-700{--tw-text-opacity:1;color:rgb(51 65 85 / var(--tw-text-opacity, 1))}.text-slate-900{--tw-text-opacity:1;color:rgb(15 23 42 / var(--tw-text-opacity, 1))}.placeholder-slate-400::placeholder{--tw-placeholder-opacity:1;color:rgb(148 163 184 / var(--tw-placeholder-opacity, 1))}.opacity-0{opacity:0}.opacity-100{opacity:1}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.outline-none{outline:2px solid transparent;outline-offset:2px}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-200{transition-duration:200ms}.duration-300{transition-duration:300ms}.last\:border-0:last-child{border-width:0px}.hover\:bg-slate-50:hover{--tw-bg-opacity:1;background-color:rgb(248 250 252 / var(--tw-bg-opacity, 1))}.hover\:text-slate-700:hover{--tw-text-opacity:1;color:rgb(51 65 85 / var(--tw-text-opacity, 1))}.focus\:border-primary:focus{--tw-border-opacity:1;border-color:rgb(139 92 246 / var(--tw-border-opacity, 1))}.dark\:border-slate-700:is(.dark *){--tw-border-opacity:1;border-color:rgb(51 65 85 / var(--tw-border-opacity, 1))}.dark\:border-slate-800:is(.dark *){--tw-border-opacity:1;border-color:rgb(30 41 59 / var(--tw-border-opacity, 1))}.dark\:bg-emerald-900\/30:is(.dark *){background-color:rgb(6 78 59 / 0.3)}.dark\:bg-red-900\/20:is(.dark *){background-color:rgb(127 29 29 / 0.2)}.dark\:bg-slate-800:is(.dark *){--tw-bg-opacity:1;background-color:rgb(30 41 59 / var(--tw-bg-opacity, 1))}.dark\:bg-slate-800\/50:is(.dark *){background-color:rgb(30 41 59 / 0.5)}.dark\:bg-slate-900:is(.dark *){--tw-bg-opacity:1;background-color:rgb(15 23 42 / var(--tw-bg-opacity, 1))}.dark\:bg-slate-900\/50:is(.dark *){background-color:rgb(15 23 42 / 0.5)}.dark\:bg-slate-950:is(.dark *){--tw-bg-opacity:1;background-color:rgb(2 6 23 / var(--tw-bg-opacity, 1))}.dark\:text-emerald-400:is(.dark *){--tw-text-opacity:1;color:rgb(52 211 153 / var(--tw-text-opacity, 1))}.dark\:text-slate-300:is(.dark *){--tw-text-opacity:1;color:rgb(203 213 225 / var(--tw-text-opacity, 1))}.dark\:text-slate-400:is(.dark *){--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.dark\:text-white:is(.dark *){--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.dark\:shadow-slate-900\/50:is(.dark *){--tw-shadow-color:rgb(15 23 42 / 0.5);--tw-shadow:var(--tw-shadow-colored)}.dark\:hover\:bg-slate-800:hover:is(.dark *){--tw-bg-opacity:1;background-color:rgb(30 41 59 / var(--tw-bg-opacity, 1))}.dark\:hover\:text-slate-200:hover:is(.dark *){--tw-text-opacity:1;color:rgb(226 232 240 / var(--tw-text-opacity, 1))}@media (min-width: 768px){.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}}</style></head>
+
+<body class="bg-slate-50 dark:bg-slate-950 min-h-screen transition-colors duration-300">
+    <div class="max-w-2xl mx-auto px-4 py-12">
+        <!-- 헤더 -->
+        <header class="text-center mb-10">
+            <div class="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-2xl mb-4">
+                <span id="headerIcon" class="material-symbols-outlined text-primary text-3xl">search_insights</span>
+            </div>
+            <h1 id="headerTitle" class="text-3xl font-bold text-slate-900 dark:text-white mb-2">어레이 정보 검색기</h1>
+            <p id="headerDesc" class="text-slate-500 dark:text-slate-400">모델명을 입력하여 어레이 정보를 즉시 확인하세요.</p>
+        </header>
+
+        <!-- 탭 메뉴 -->
+        <div class="flex p-1 bg-slate-200/50 dark:bg-slate-900/50 rounded-2xl mb-8">
+            <button id="tabArray" onclick="switchMode('array')" class="flex-1 py-3 px-4 rounded-xl text-sm font-bold transition-all duration-200 flex items-center justify-center gap-2 bg-white dark:bg-slate-800 text-primary shadow-sm">
+                <span class="material-symbols-outlined text-[20px]">tv</span>
+                어레이 검색
+            </button>
+            <button id="tabPower" onclick="switchMode('power')" class="flex-1 py-3 px-4 rounded-xl text-sm font-bold transition-all duration-200 flex items-center justify-center gap-2 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200">
+                <span class="material-symbols-outlined text-[20px]">history_toggle_off</span>
+                Power Off History
+            </button>
+        </div>
+
+        <!-- 검색창 -->
+        <div class="relative mb-8">
+            <input type="text" id="searchInput" placeholder="모델명 입력 (예: 29MT48DF, 55UJ7240)" class="w-full h-16 pl-14 pr-6 rounded-2xl bg-white dark:bg-slate-900 border-2 border-transparent focus:border-primary shadow-xl dark:shadow-slate-900/50 text-lg outline-none transition-all dark:text-white placeholder-slate-400">
+            <span class="material-symbols-outlined absolute left-5 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+
+            <!-- 자동완성 목록 컨테이너 -->
+            <div id="suggestionList" class="absolute top-full left-0 right-0 mt-2 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 z-50 overflow-hidden max-h-64 overflow-y-auto custom-scrollbar hidden"><button class="w-full text-left px-5 py-4 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center gap-3 transition-colors border-b border-slate-50 dark:border-slate-800 last:border-0">
+                    <span class="material-symbols-outlined text-slate-400 text-[20px]">settings_power</span>
+                    <span class="dark:text-white font-medium"><span class="text-primary font-bold">OFF</span>_BY_CPUCMD</span>
+                </button><button class="w-full text-left px-5 py-4 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center gap-3 transition-colors border-b border-slate-50 dark:border-slate-800 last:border-0">
+                    <span class="material-symbols-outlined text-slate-400 text-[20px]">settings_power</span>
+                    <span class="dark:text-white font-medium"><span class="text-primary font-bold">OFF</span>_BY_ABN</span>
+                </button><button class="w-full text-left px-5 py-4 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center gap-3 transition-colors border-b border-slate-50 dark:border-slate-800 last:border-0">
+                    <span class="material-symbols-outlined text-slate-400 text-[20px]">settings_power</span>
+                    <span class="dark:text-white font-medium"><span class="text-primary font-bold">OFF</span>_BY_KEYTIMEOUT</span>
+                </button><button class="w-full text-left px-5 py-4 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center gap-3 transition-colors border-b border-slate-50 dark:border-slate-800 last:border-0">
+                    <span class="material-symbols-outlined text-slate-400 text-[20px]">settings_power</span>
+                    <span class="dark:text-white font-medium"><span class="text-primary font-bold">OFF</span>_BY_ACDET</span>
+                </button><button class="w-full text-left px-5 py-4 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center gap-3 transition-colors border-b border-slate-50 dark:border-slate-800 last:border-0">
+                    <span class="material-symbols-outlined text-slate-400 text-[20px]">settings_power</span>
+                    <span class="dark:text-white font-medium"><span class="text-primary font-bold">OFF</span>_BY_RESET</span>
+                </button><button class="w-full text-left px-5 py-4 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center gap-3 transition-colors border-b border-slate-50 dark:border-slate-800 last:border-0">
+                    <span class="material-symbols-outlined text-slate-400 text-[20px]">settings_power</span>
+                    <span class="dark:text-white font-medium"><span class="text-primary font-bold">OFF</span>_BY_5VMNT</span>
+                </button><button class="w-full text-left px-5 py-4 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center gap-3 transition-colors border-b border-slate-50 dark:border-slate-800 last:border-0">
+                    <span class="material-symbols-outlined text-slate-400 text-[20px]">settings_power</span>
+                    <span class="dark:text-white font-medium"><span class="text-primary font-bold">OFF</span>_BY_NO_POLLING</span>
+                </button></div>
+        </div>
+
+        <!-- 결과 영역 -->
+        <div id="resultArea" class="space-y-4">
+            <!-- 초기 상태 안내 -->
+            <div id="emptyState" class="text-center py-12 text-slate-400"><span class="material-symbols-outlined text-5xl mb-2">find_in_page</span><p>'OFF' 포함 항목을 추천 목록에서 선택하세요.</p></div>
+
+            <!-- 결과 카드 -->
+            <div id="resultCard" class="glass-effect rounded-3xl p-8 shadow-2xl transform transition-all duration-300 hidden scale-95 opacity-0">
+                <div class="flex items-center gap-3 mb-6">
+                    <h2 id="resultTitle" class="text-2xl font-bold text-slate-900 dark:text-white">OFF_BY_NO_POLLING</h2>
+                    <span id="resultBadge" class="px-3 py-1 bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400 text-xs font-bold rounded-full">검색
+                        성공</span>
+                </div>
+
+                <!-- 어레이 결과 레이아웃 -->
+                <div id="arrayLayout" class="grid grid-cols-1 md:grid-cols-2 gap-6 hidden">
+                    <div class="space-y-4">
+                        <h3 class="text-sm font-bold text-slate-400 uppercase tracking-wider">Direct Array</h3>
+                        <div class="space-y-3">
+                            <div class="info-item flex flex-col p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700 border-primary/30 bg-primary/5">
+                                <span class="text-xs text-slate-400 mb-1">Direct Array1</span>
+                                <span id="valArray1" class="font-mono font-bold text-lg dark:text-white text-primary">AGF30007001</span>
+                            </div>
+                            <div class="info-item flex flex-col p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700">
+                                <span class="text-xs text-slate-400 mb-1">Direct Array2</span>
+                                <span id="valArray2" class="font-mono font-bold text-lg dark:text-white">-</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <h3 class="text-sm font-bold text-slate-400 uppercase tracking-wider">Edge Information</h3>
+                        <div class="space-y-3">
+                            <div class="info-item flex flex-col p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700">
+                                <span class="text-xs text-slate-400 mb-1">Edge1</span>
+                                <span id="valEdge1" class="font-mono font-bold text-lg dark:text-white">-</span>
+                            </div>
+                            <div class="info-item flex flex-col p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700">
+                                <span class="text-xs text-slate-400 mb-1">Edge2</span>
+                                <span id="valEdge2" class="font-mono font-bold text-lg dark:text-white">-</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Power Off 결과 레이아웃 -->
+                <div id="powerLayout" class="space-y-4">
+                    <h3 class="text-sm font-bold text-slate-400 uppercase tracking-wider">오류 발생 원인 및 설명</h3>
+                    <div class="p-6 rounded-2xl bg-primary/5 border border-primary/20 text-slate-700 dark:text-slate-300 leading-relaxed whitespace-pre-line" id="valDescription">Main SoC의 Micom Thread와 Micom간 통신이 15초 이상 끊어지는 문제가 발생된 경우,
+원복을 위해 Auto Reboot을 수행하면서 남기는 문구 (Release Mode에서만 동작 됨)</div>
+                </div>
+            </div>
+
+            <!-- 결과 없음 안내 -->
+            <div id="notFoundState" class="text-center py-12 hidden">
+                <div class="inline-flex items-center justify-center w-12 h-12 bg-red-50 dark:bg-red-900/20 rounded-full mb-3">
+                    <span class="material-symbols-outlined text-red-500">error</span>
+                </div>
+                <p class="text-slate-600 dark:text-slate-400 font-medium">해당 모델의 데이터를 찾을 수 없습니다.</p>
+            </div>
+        </div>
+
+        <!-- 하단 푸터/다크모드 토글 -->
+        <footer class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 flex justify-between items-center">
+            <p class="text-xs text-slate-400 font-medium tracking-tight">© 2026 AI Support Tool . All rights reserved.
+            </p>
+            <button onclick="document.documentElement.classList.toggle('dark')" class="w-10 h-10 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-50 transition-colors">
+                <span class="material-symbols-outlined text-[20px]">dark_mode</span>
+            </button>
+        </footer>
+    </div>
+
+    <script>
+        // --- 데이터 정의 ---
+        const MODEL_DATA = {
+            "29MT48DF": { "array1": "AGF30007001", "array2": "", "edge1": "", "edge2": "" },
+            "55UJ7240": { "array1": "", "array2": "", "edge1": "AGF78686801", "edge2": "AGF78686802" },
+            "32LD320": { "array1": "AGF78399501", "array2": "", "edge1": "", "edge2": "" },
+            "43UK6300PUE": { "array1": "AGF79043201", "array2": "", "edge1": "", "edge2": "" },
+            "32LF510B": { "array1": "AGF78401301", "array2": "", "edge1": "", "edge2": "" },
+            "43LF5100": { "array1": "AGF78401401", "array2": "", "edge1": "", "edge2": "" },
+            "49LF5100": { "array1": "AGF78401501", "array2": "", "edge1": "", "edge2": "" },
+            "43UF6400": { "array1": "AGF78401601", "array2": "", "edge1": "", "edge2": "" },
+            "49UF6400": { "array1": "AGF78401701", "array2": "", "edge1": "", "edge2": "" },
+            "32LF5600": { "array1": "AGF78401801", "array2": "", "edge1": "", "edge2": "" },
+            "42LF5600": { "array1": "AGF78401901", "array2": "", "edge1": "", "edge2": "" },
+            "43LF5400": { "array1": "AGF78402001", "array2": "", "edge1": "", "edge2": "" },
+            "49LF5400": { "array1": "AGF78402101", "array2": "", "edge1": "", "edge2": "" },
+            "42LD450": { "array1": "AGF78402201", "array2": "", "edge1": "", "edge2": "" },
+            "42LD550": { "array1": "AGF78402301", "array2": "", "edge1": "", "edge2": "" }
+        };
+
+        const POWER_OFF_DATA = {
+            "OFF_BY_CPUCMD": "CPU Command에 의해서 Power Off 동작을 수행하는 경우에 남기는 문구(현재 사용하지 않음)",
+            "OFF_BY_ABN": "아래 두 Case에 의한 비 정상적인 Power Off 동작을 수행하는 경우에 남기는 문구\nCase1 : Booting Fail이 발생하는 경우(Pipe Line Overflow 발생)\nCase2 : Resume Fail이 발생되어 Reboot을 수행하였으나 Main이 정상적으로 Booting 되지 못하는 경우",
+            "OFF_BY_KEYTIMEOUT": "Power Off 요청 이후, Main에서 일정시간(8초) 동안 Power Off 완료 Message나 Delay Command(8초 연장)를 보내지 못한 경우\nMicom에서 강제로 Power Off 동작을 수행하는 경우에 남기는 문구",
+            "OFF_BY_ACDET": "AC 전원이 흔들려 TV가 Reset 되는 경우에 남기는 문구(단, M3 Model의 경우 Micom SW Update 이후 Reboot하는 경우에도 해당 문구를 남김)",
+            "OFF_BY_RESET": "Main에서 Micom으로 Reset 요청을 수행하는 경우에 남기는 문구",
+            "OFF_BY_5VMNT": "DC On 도중 Relay 전원 안정성 Check 수행 시, POWER_DET(AC_DET) 전원이 불안정한 경우 Power Off를 수행하면서 남기는 문구",
+            "OFF_BY_NO_POLLING": "Main SoC의 Micom Thread와 Micom간 통신이 15초 이상 끊어지는 문제가 발생된 경우,\n원복을 위해 Auto Reboot을 수행하면서 남기는 문구 (Release Mode에서만 동작 됨)"
+        };
+
+        let currentMode = 'array'; // 'array' or 'power'
+
+        const searchInput = document.getElementById('searchInput');
+        const suggestionList = document.getElementById('suggestionList');
+        const emptyState = document.getElementById('emptyState');
+        const notFoundState = document.getElementById('notFoundState');
+        const resultCard = document.getElementById('resultCard');
+
+        const arrayLayout = document.getElementById('arrayLayout');
+        const powerLayout = document.getElementById('powerLayout');
+
+        const resultTitle = document.getElementById('resultTitle');
+        const valArray1 = document.getElementById('valArray1');
+        const valArray2 = document.getElementById('valArray2');
+        const valEdge1 = document.getElementById('valEdge1');
+        const valEdge2 = document.getElementById('valEdge2');
+        const valDescription = document.getElementById('valDescription');
+
+        // 모드 전환 함수
+        function switchMode(mode) {
+            currentMode = mode;
+            const tabArray = document.getElementById('tabArray');
+            const tabPower = document.getElementById('tabPower');
+            const headerIcon = document.getElementById('headerIcon');
+            const headerTitle = document.getElementById('headerTitle');
+            const headerDesc = document.getElementById('headerDesc');
+
+            // UI 업데이트
+            if (mode === 'array') {
+                tabArray.className = "flex-1 py-3 px-4 rounded-xl text-sm font-bold transition-all duration-200 flex items-center justify-center gap-2 bg-white dark:bg-slate-800 text-primary shadow-sm";
+                tabPower.className = "flex-1 py-3 px-4 rounded-xl text-sm font-bold transition-all duration-200 flex items-center justify-center gap-2 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200";
+                headerIcon.textContent = "search_insights";
+                headerTitle.textContent = "어레이 정보 검색기";
+                headerDesc.textContent = "모델명을 입력하여 어레이 정보를 즉시 확인하세요.";
+                searchInput.placeholder = "모델명 입력 (예: 29MT48DF, 55UJ7240)";
+            } else {
+                tabPower.className = "flex-1 py-3 px-4 rounded-xl text-sm font-bold transition-all duration-200 flex items-center justify-center gap-2 bg-white dark:bg-slate-800 text-primary shadow-sm";
+                tabArray.className = "flex-1 py-3 px-4 rounded-xl text-sm font-bold transition-all duration-200 flex items-center justify-center gap-2 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200";
+                headerIcon.textContent = "history_toggle_off";
+                headerTitle.textContent = "Power Off History";
+                headerDesc.textContent = "코드명을 입력하여 발생 원인을 진단하세요.";
+                searchInput.placeholder = "코드명 입력 (예: OFF_BY_ABN, RESET)";
+            }
+
+            // 검색어 초기화 및 상태 갱신
+            searchInput.value = '';
+            showState('empty');
+            hideSuggestions();
+            searchInput.focus();
+        }
+
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.trim().toUpperCase();
+
+            if (!query) {
+                showState('empty');
+                hideSuggestions();
+                return;
+            }
+
+            const dataSet = currentMode === 'array' ? MODEL_DATA : POWER_OFF_DATA;
+            const matches = Object.keys(dataSet).filter(key => key.includes(query));
+
+            if (matches.length > 0) {
+                renderSuggestions(matches, query);
+
+                if (dataSet[query]) {
+                    updateResult(query, dataSet[query]);
+                    showState('result');
+                } else {
+                    showState('empty');
+                    emptyState.innerHTML = `<span class="material-symbols-outlined text-5xl mb-2">find_in_page</span><p>'${query}' 포함 항목을 추천 목록에서 선택하세요.</p>`;
+                }
+            } else {
+                hideSuggestions();
+                showState('notFound');
+            }
+        });
+
+        function renderSuggestions(matches, query) {
+            suggestionList.innerHTML = '';
+            suggestionList.classList.remove('hidden');
+
+            matches.slice(0, 10).forEach(key => {
+                const button = document.createElement('button');
+                button.className = 'w-full text-left px-5 py-4 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center gap-3 transition-colors border-b border-slate-50 dark:border-slate-800 last:border-0';
+
+                const highlighted = key.replace(new RegExp(query, 'gi'), `<span class="text-primary font-bold">${query}</span>`);
+                const icon = currentMode === 'array' ? 'tv' : 'settings_power';
+
+                button.innerHTML = `
+                    <span class="material-symbols-outlined text-slate-400 text-[20px]">${icon}</span>
+                    <span class="dark:text-white font-medium">${highlighted}</span>
+                `;
+
+                button.onclick = () => {
+                    const dataSet = currentMode === 'array' ? MODEL_DATA : POWER_OFF_DATA;
+                    searchInput.value = key;
+                    updateResult(key, dataSet[key]);
+                    showState('result');
+                    hideSuggestions();
+                };
+                suggestionList.appendChild(button);
+            });
+        }
+
+        function hideSuggestions() {
+            suggestionList.classList.add('hidden');
+        }
+
+        document.addEventListener('click', (e) => {
+            if (!searchInput.contains(e.target) && !suggestionList.contains(e.target)) {
+                hideSuggestions();
+            }
+        });
+
+        function showState(state) {
+            emptyState.classList.add('hidden');
+            notFoundState.classList.add('hidden');
+            resultCard.classList.add('hidden');
+            resultCard.classList.remove('scale-100', 'opacity-100');
+            resultCard.classList.add('scale-95', 'opacity-0');
+
+            if (state === 'empty') {
+                emptyState.classList.remove('hidden');
+            } else if (state === 'notFound') {
+                notFoundState.classList.remove('hidden');
+            } else if (state === 'result') {
+                resultCard.classList.remove('hidden');
+                setTimeout(() => {
+                    resultCard.classList.remove('scale-95', 'opacity-0');
+                    resultCard.classList.add('scale-100', 'opacity-100');
+                }, 10);
+            }
+        }
+
+        function updateResult(title, data) {
+            resultTitle.textContent = title;
+
+            if (currentMode === 'array') {
+                arrayLayout.classList.remove('hidden');
+                powerLayout.classList.add('hidden');
+
+                valArray1.textContent = data.array1 || '-';
+                valArray2.textContent = data.array2 || '-';
+                valEdge1.textContent = data.edge1 || '-';
+                valEdge2.textContent = data.edge2 || '-';
+
+                [valArray1, valArray2, valEdge1, valEdge2].forEach(el => {
+                    if (el.textContent !== '-') {
+                        el.classList.add('text-primary');
+                        el.closest('.info-item').classList.add('border-primary/30', 'bg-primary/5');
+                    } else {
+                        el.classList.remove('text-primary');
+                        el.closest('.info-item').classList.remove('border-primary/30', 'bg-primary/5');
+                    }
+                });
+            } else {
+                arrayLayout.classList.add('hidden');
+                powerLayout.classList.remove('hidden');
+                valDescription.textContent = data;
+            }
+        }
+    </script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+</body></html>
